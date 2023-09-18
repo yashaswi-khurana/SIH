@@ -3,162 +3,202 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text, View, StyleSheet, TextInput,ScrollView, SafeAreaView,StatusBar,Button,Alert,TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
-import { Grid } from "react-native-grid-component";
+import { Image } from 'react-native';
+import { FlatList } from 'react-native';
+import {  } from 'react-native-image-slider-box';
+import { ImageSlider } from "react-native-image-slider-banner";
 
-//Home Screen
-function HomeScreen(props) {
-  return (
-    <View style={styles.container} >
-      <View style={styles.Idcard} >
-        <Text style={{fontSize: 24,color:'#D4ECDD'}}>Yashaswi Khurana</Text>
-        <Text style={{fontSize: 24,color:'#D4ECDD'}}>22106023</Text>
-        <Text style={{fontSize: 24,color:'#D4ECDD'}}>Data-Science</Text>
-        <Text style={{fontSize: 24,color:'#D4ECDD'}}>R.no: 21</Text>
-        <Text style={{fontSize: 24,color:'#D4ECDD'}}>7719417331</Text>
-      </View>
-      <TouchableOpacity style={styles.Main1} onPress={()=>props.navigation.navigate('Form')}>
-        <Text style={{fontSize: 24,color:'#D4ECDD'}}>Fill The Form</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.Main2} onPress={()=>props.navigation.navigate('Form')}>
-        <Text style={{fontSize: 24,color:'#D4ECDD'}}>Check Approved forms</Text>
-      </TouchableOpacity>
 
-      </View>
-  );
-}
 
-function Bharat_Mart(props){
-  const [sid,setsid] = useState('22106023');
+function Login(props){
+  const [sid,setusername] = useState('Yashaswi');
   const [password,setPassword] = useState('Password');
+  
+
+
   return(
-      <ScrollView style={styles.login}>
-        <View style={styles.card1}>
-          <Text style={{fontSize:40,margin:5}}> Bansal Grocery</Text>
-          <Text style={{fontSize:15,margin:5}}> 1.5km away</Text>
-          <Text style={{fontSize:15,margin:5}}> Address:344,abcd nagar,Chandigarh</Text>
-          <TouchableOpacity style={styles.Main1} onPress={()=>props.navigation.navigate('Form')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>View Items</Text></TouchableOpacity>
-        </View>
-        <View style={styles.card2}>
-        <Text style={{fontSize:40,margin:5}}> Family mart</Text>
-        <Text style={{fontSize:15,margin:5}}> 1km away</Text>
-        <Text style={{fontSize:15,margin:5}}> Address:344,abcd nagar,Chandigarh</Text>
-          <TouchableOpacity style={styles.Main1} onPress={()=>props.navigation.navigate('Form')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>View Items</Text></TouchableOpacity>
-        </View>
-        <View style={styles.card3}>
-        <Text style={{fontSize:40,margin:5}}> Mor</Text>
-        <Text style={{fontSize:15,margin:5}}> 3km away</Text>
-        <Text style={{fontSize:15,margin:5}}> Address:344,abcd nagar,Chandigarh</Text>
-          <TouchableOpacity style={styles.Main1} onPress={()=>props.navigation.navigate('Form')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>View Items</Text></TouchableOpacity>
-        </View>
-        <View style={styles.card4}>
-        <Text style={{fontSize:40,margin:5}}> Mohan Bakery</Text>
-        <Text style={{fontSize:15,margin:5}}> Closed</Text>
-        <Text style={{fontSize:15,margin:5}}> Address:344,abcd nagar,Chandigarh</Text>
-          <TouchableOpacity style={styles.Main1} onPress={()=>props.navigation.navigate('Form')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>View Items</Text></TouchableOpacity>
-        </View>
+      <ScrollView style={styles.front}>
+        <View style={styles.h1}>
+        <Text style={{fontSize: 54,color:'#000000'}}>Login</Text>
+        <TextInput style={styles.h2}
+        placeholder='Username'
+        placeholderTextColor={'#000000'}
+        onChangeText={(val)=>setusername(val)}/>
+
+        <TextInput style={styles.h2}
+        // keyboardType='password'
+        placeholder='Enter Password'
+        placeholderTextColor={'#000000'}
+        onChangeText={(val)=>setPassword(val)}/>
+
+        <TouchableOpacity style={styles.loginbutton} onPress={()=>props.navigation.navigate('Bharat Mart')}>
+        <Text style={{fontSize: 24,color:'#000000'}}>Submit</Text>
+      </TouchableOpacity>
+      </View>
       </ScrollView>
+
       
 
 
   );
 }
+//Home Screen
+function HomeScreen(props) {
+  const images = [
+    './assets/icon.png',
+    './assets/download.jpg',
+    './assets/images (1).jpeg',
+  ];
 
-//Form for leave
-function Form() {
-  const [name,setName] = useState('Yashaswi');
-  const [sid,setsid] = useState('22106023');
-  const [branch,setbranch] = useState('Data-Science');
-  const [room_number,setrn] = useState('21');
-  const [mobile_number,setmn] = useState('7719417331');
-  const [Pec_mail_id,setpmi] = useState('yashaswikhurana.bt22cseds@pec.edu.in');
-  const [Reason,setreason] = useState('Going home');
-  const [AVP,setavp] = useState('AVP');
-  const [PMN,setpmn] = useState('9815494849');
-  const [Date,setdate] = useState('dd/mm/yyyy');
-  const [password,setPassword] = useState('Password');
+  return (
+    <ScrollView style={styles.Home}>
+      <View style={styles.HomeView}>
+      <View style={styles.Hometag}>
+        <Text style={{fontSize:30, fontWeight:'bold', color:'#2F8D46'}}>Welcome to Bharat Mart app!</Text>
+      </View>
+      <View>
+        <Text style={{fontSize:30, fontWeight:'bold'}}>Offers</Text>
+        <ImageSlider 
+    data={[
+        {img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a5uCP-n4teeW2SApcIqUrcQApev8ZVCJkA&usqp=CAU'},
+        {img: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
+        {img: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
+    ]}
+    autoPlay={false}
+    onItemChanged={(item) => console.log("item", item)}
+    closeIconColor="#fff"
+/>
+      </View>
+      <View>
+        <Text style={{fontSize:30, fontWeight:'bold'}}>Discounts</Text>
+        <ImageSlider 
+    data={[
+        {img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a5uCP-n4teeW2SApcIqUrcQApev8ZVCJkA&usqp=CAU'},
+        {img: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
+        {img: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
+    ]}
+    autoPlay={false}
+    onItemChanged={(item) => console.log("item", item)}
+    closeIconColor="#fff"
+/>
+      </View>
+      <View style={styles.Button}>
+      <TouchableOpacity style={styles.Mainbu} onPress={()=>props.navigation.navigate('Stores')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>Search By Shop</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.Mainbu} onPress={()=>props.navigation.navigate('ItemView')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>View by Item</Text></TouchableOpacity>
+      </View>
+      </View>
+    </ScrollView>
+  );
+}
 
+function Bharat_Mart(props){
+  return(
+      <ScrollView style={styles.login}>
+        <TextInput style={styles.input}
+        placeholder='Search Store'
+        placeholderTextColor={'#000000'}/>
+        <View style={styles.card1}>
+          <Text style={{fontSize:40,margin:5}}> Bansal Grocery</Text>
+          <Text style={{fontSize:15,margin:5}}> 1.5km away</Text>
+          <Text style={{fontSize:15,margin:5}}> Address:344,abcd nagar,Chandigarh</Text>
+          <TouchableOpacity style={styles.Main1} onPress={()=>props.navigation.navigate('ItemView')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>View Items</Text></TouchableOpacity>
+        </View>
+        <View style={styles.card2}>
+        <Text style={{fontSize:40,margin:5}}> Family mart</Text>
+        <Text style={{fontSize:15,margin:5}}> 1km away</Text>
+        <Text style={{fontSize:15,margin:5}}> Address:344,abcd nagar,Chandigarh</Text>
+          <TouchableOpacity style={styles.Main1} onPress={()=>props.navigation.navigate('ItemView')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>View Items</Text></TouchableOpacity>
+        </View>
+        <View style={styles.card3}>
+        <Text style={{fontSize:40,margin:5}}> Mor</Text>
+        <Text style={{fontSize:15,margin:5}}> 3km away</Text>
+        <Text style={{fontSize:15,margin:5}}> Address:344,abcd nagar,Chandigarh</Text>
+          <TouchableOpacity style={styles.Main1} onPress={()=>props.navigation.navigate('ItemView')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>View Items</Text></TouchableOpacity>
+        </View>
+        <View style={styles.card4}>
+        <Text style={{fontSize:40,margin:5}}> Mohan Bakery</Text>
+        <Text style={{fontSize:15,margin:5}}> Closed</Text>
+        <Text style={{fontSize:15,margin:5}}> Address:344,abcd nagar,Chandigarh</Text>
+          <TouchableOpacity style={styles.Main1} onPress={()=>props.navigation.navigate('ItemView')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>View Items</Text></TouchableOpacity>
+        </View>
+      </ScrollView>
+  );
+}
+
+//ItemView for leave
+function ItemView(props) {
 
     return (
-      <SafeAreaView style={styles.container1}>
-        <ScrollView style={styles.ScrollView}>
-        <TextInput style={styles.input}
-        placeholder='Enter Name'
-        placeholderTextColor={'#D4ECDD'}
-        onChangeText={(val)=>setName(val)}/>
-
-        <TextInput style={styles.sid} 
-        keyboardType='numeric'
-        placeholder='Student id'
-        placeholderTextColor={'#D4ECDD'}
-        onChangeText={(val2)=>setsid(val2)}/>
-
-        <TextInput style={styles.input}
-        placeholder='Branch'
-        placeholderTextColor={'#D4ECDD'}
-        onChangeText={(val3)=>setbranch(val3)}/>
-
-        <TextInput style={styles.input}
-        placeholder='Room number'
-        placeholderTextColor={'#D4ECDD'}
-        onChangeText={(val4)=>setrn(val4)}/>
-
-        <TextInput style={styles.input}
-        placeholder='Mobile number'
-        keyboardType='numeric'
-        placeholderTextColor={'#D4ECDD'}
-        onChangeText={(val5)=>setmn(val5)}/>
-
-        <TextInput style={styles.input}
-        placeholder='Pec mail-id'
-        placeholderTextColor={'#D4ECDD'}
-        onChangeText={(val6)=>setpmi(val6)}/>
-
-        <TextInput style={styles.reason}
-        placeholder='Reason'
-        placeholderTextColor={'#D4ECDD'}
-        onChangeText={(val7)=>setreason(val7)}/>
-
-        <TextInput style={styles.input}
-        placeholder='Address of visiting place'
-        placeholderTextColor={'#D4ECDD'}
-        onChangeText={(val8)=>setavp(val8)}/>
-
-        <TextInput style={styles.input}
-        placeholder='Parents Mobile number'
-        keyboardType='numeric'
-        placeholderTextColor={'#D4ECDD'}
-        onChangeText={(val9)=>setpmn(val9)}/>
-
-        <TextInput style={styles.input}
-        placeholder='Date'
-        placeholderTextColor={'#D4ECDD'}
-        onChangeText={(val10)=>setdate(val10)}/>
-
-        <TextInput style={styles.input}
-        placeholder='Password'
-        placeholderTextColor={'#D4ECDD'}
-        onChangeText={(val)=>setPassword(val)}/>
-        <View style={styles.fixToText}>
-          <TouchableOpacity style={{
-            justifyContent:'center',
-            alignItems:'center',
-            borderWidth:0.5,
-            borderColor:'#D4ECDD',
-            marginBottom:10,
-            padding:8,
-            borderRadius:5,
-          }} onPress={() => Alert.alert('Your form has been submitted and is under process')}>
-        <Text style={{fontSize: 25,color:'#D4ECDD'}}>Submit</Text>
-      </TouchableOpacity>
-        </View>
-        
-        </ScrollView>
-      </SafeAreaView>
+        <ScrollView>
+      <View style={styles.login2}>
+          <TextInput style={styles.input}
+        placeholder='Search Item'
+        placeholderTextColor={'#000000'}/>
+      <View style={styles.Item1}>
+        <Text style={{fontSize:40,margin:5}}>Ashirwad Atta</Text>
+        <TouchableOpacity style={styles.Mains} onPress={()=>props.navigation.navigate('Item')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>Buy Now</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.Mains} onPress={()=>props.navigation.navigate('Item')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>Add to Cart</Text></TouchableOpacity>
+      </View>
+      <View style={styles.Item1}>
+        <Text style={{fontSize:40,margin:5}}>Milk</Text>
+        <TouchableOpacity style={styles.Mains} onPress={()=>props.navigation.navigate('Item')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>Buy Now</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.Mains} onPress={()=>props.navigation.navigate('Item')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>Add to Cart</Text></TouchableOpacity>
+      </View>
+      <View style={styles.Item1}>
+      <Text style={{fontSize:40,margin:5}}>Masoor ki Dal</Text>
+      <TouchableOpacity style={styles.Mains} onPress={()=>props.navigation.navigate('Item')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>Buy Now</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.Mains} onPress={()=>props.navigation.navigate('Item')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>Add to Cart</Text></TouchableOpacity>
+      </View>
+      <View style={styles.Item1}>
+      <Text style={{fontSize:40,margin:5}}>Rice</Text>
+      <TouchableOpacity style={styles.Mains} onPress={()=>props.navigation.navigate('Item')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>Buy Now</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.Mains} onPress={()=>props.navigation.navigate('Item')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>Add to Cart</Text></TouchableOpacity>
+      </View>
+      <View style={styles.Item1}>
+      <Text style={{fontSize:40,margin:5}}>Moong Dal</Text>
+      <TouchableOpacity style={styles.Mains} onPress={()=>props.navigation.navigate('Item')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>Buy Now</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.Mains} onPress={()=>props.navigation.navigate('Item')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>Add to Cart</Text></TouchableOpacity>
+      </View>
+      <View style={styles.Item1}>
+      <Text style={{fontSize:40,margin:5}}>Arhar Dal</Text>
+      <TouchableOpacity style={styles.Mains} onPress={()=>props.navigation.navigate('Item')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>Buy Now</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.Mains} onPress={()=>props.navigation.navigate('Item')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>Add to Cart</Text></TouchableOpacity>
+      </View>
+      <View style={styles.Item1}>
+        <Text style={{fontSize:40,margin:5}}>Butter</Text>
+        <TouchableOpacity style={styles.Mains} onPress={()=>props.navigation.navigate('Item')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>Buy Now</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.Mains} onPress={()=>props.navigation.navigate('Item')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>Add to Cart</Text></TouchableOpacity>
+      </View>
+      <View style={styles.Item1}>
+      <Text style={{fontSize:40,margin:5}}>Bislesri Bottle</Text>
+      <TouchableOpacity style={styles.Mains} onPress={()=>props.navigation.navigate('Item')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>Buy Now</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.Mains} onPress={()=>props.navigation.navigate('Item')}><Text style={{fontSize: 24,color:'#D4ECDD'}}>Add to Cart</Text></TouchableOpacity>
+      </View>
+    </View>
+      </ScrollView>
     );
   }
+function Item(props){
+  return(
+    <ScrollView>
+    <View style={styles.Itemcard}>
+      <Text style={{fontSize:50}} >Ashirwad Atta</Text>
+      <Image source={require('C:\\Users\\Yashaswi\\OneDrive\\Desktop\\Student\\assets\\aashirvaad-CHAKKI-FRESH.jpg')} style={{height:400,width:300}}></Image>
+      <Text style={{fontSize:30}}>Price: 200</Text>
+      <Text style={{fontSize:30}}>Quantity: 5kg</Text>
+      <Text style={{fontSize:20}}>Description: Whole Wheat Flour</Text>
+      <TextInput style={styles.sid} 
+        keyboardType='numeric'
+        placeholder='Add Qty'
+        placeholderTextColor={'#000000'}/>
+      <TouchableOpacity style={styles.Mains} onPress={() => Alert.alert('Your Order has been Placed')}>
+        <Text style={{fontSize: 24,color:'#D4ECDD'}}>Buy Now</Text></TouchableOpacity>
+    </View>
+    </ScrollView>
+  );
+}
 //Navigation
 const Stack = createNativeStackNavigator();
-
 function App() {
   return (
     <NavigationContainer>
@@ -174,9 +214,11 @@ function App() {
       },
       headerTintColor:'#2F8D46'
         }} >
-          <Stack.Screen name='Bharat Mart' component={Bharat_Mart}/>
-        <Stack.Screen name="Dormsavior" component={HomeScreen}/>
-        <Stack.Screen name="Form" component={Form} />
+        <Stack.Screen name='Login' component={Login}/>
+        <Stack.Screen name="Bharat Mart" component={HomeScreen} />
+          <Stack.Screen name='Stores' component={Bharat_Mart}/>
+        <Stack.Screen name="ItemView" component={ItemView} />
+        <Stack.Screen name="Item" component={Item} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -184,6 +226,75 @@ function App() {
 
 //Style
 const styles = StyleSheet.create({
+  h2:{
+    borderWidth:1,
+    borderColor:'#000000',
+    padding:8,
+    margin:5,
+    height:50,
+    width:300,
+    borderRadius:10
+
+  },
+  h1:{
+    flex:1,
+    backgroundColor:'#ffffff',
+    alignContent:'center',
+    padding:10,
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius:10,
+    margin:10,
+    shadowColor:'black',
+    elevation:10,
+    shadowOpacity:5,
+    borderWidth:0.5,
+    borderColor:'#D4ECDD',
+  },
+  front:{
+    flex:1,
+    backgroundColor:'#ffffff',
+    alignContent:'center',
+    padding:2,
+    
+  },
+
+  Button:{
+    flexDirection:'row',
+    flexWrap:'wrap',
+  },
+  sliderContainer: {
+    // width:widths,
+    height: 200, // Adjust the height as needed
+  },
+  image: {
+    // width: widths,
+    height: 200, // Adjust the height as needed
+  },
+  Home:{
+    flex:1,
+    backgroundColor:'#ffffff',
+    alignContent:'center',
+    padding:10
+  },
+  // HomeView:{
+  //   flexDirection:'row',
+  //   flexWrap:'wrap',
+  // },
+  Mainbu:{
+    justifyContent:'center',
+    alignItems:'center',
+    borderColor:'#D4ECDD',
+    borderRadius:5,
+    marginBottom:40,
+    backgroundColor:'#4b49ac',
+    height:70,
+    width:180,
+    margin:10
+  },
+  Hometag:{
+    justifyContent:'center',
+  },
   container: {
     flex:1,
     backgroundColor: '#152D35',
@@ -198,36 +309,12 @@ const styles = StyleSheet.create({
   },
   input : {
     borderWidth:1,
-    borderColor:'#D4ECDD',
+    borderColor:'#000000',
     padding:8,
     margin:10,
-    width:300,
+    width:405,
     borderRadius:10,
-  color:'#D4ECDD'},
-  reason : {
-    borderWidth:1,
-    borderColor:'#D4ECDD',
-    padding:8,
-    margin:10,
-    width:300,
-    borderRadius:10,
-    color:'#D4ECDD'
-  },
-    sid : {
-    borderWidth:1,
-    borderColor:'#D4ECDD',
-    padding:8,
-    margin:10,
-    width:300,
-    borderRadius:10,
-    color:'#D4ECDD'
-  },
-  fixToText:{
-    width: 90,
-    justifyContent:'center',
-    alignItems:'center',
-    marginLeft: 110,
-  },
+  color:'#000000'},
   Main1:{
     justifyContent:'center',
     alignItems:'center',
@@ -238,49 +325,78 @@ const styles = StyleSheet.create({
     marginTop:40,
     backgroundColor:'#4b49ac',
     width:320,
-    height:50,
-    shadowColor:'black',
-    elevation:10,
-    shadowOpacity:5,
-    borderWidth:0.5,
-    marginLeft:40,
-  },
+height:50,
+shadowColor:'black',
+elevation:10,
+shadowOpacity:5,
+borderWidth:0.5,
+marginLeft:40,
+},
+Item1:{
+  backgroundColor:'#ffffff',
+  alignItems:'center',
+  justifyContent:'center',
+  borderWidth:1,
+  borderColor:'#4b49ac',
+  borderRadius:10,
+  margin:5,
+  height:250,
+  width:200,
+},
+Mains:{
+  justifyContent:'center',
+  alignItems:'center',
+  borderColor:'#D4ECDD',
+  borderRadius:10,
+  backgroundColor:'#4b49ac',
+  margin:5,
+  height:35,
+  borderWidth:1,
+  shadowColor:'black',
+elevation:10,
+shadowOpacity:5,
+width:150
+},
   Main2:{
-    justifyContent:'center',
+  justifyContent:'center',
+  alignItems:'center',
+  borderRadius:5,
+margin: 20 ,
+height:60,
+    backgroundColor:'#152D35',
+width:320,
+shadowColor:'black',
+elevation:10,
+shadowOpacity:5,
+borderWidth:0.5,
+borderColor:'#D4ECDD',
+},
+  Itemcard:{
+    flex:1,
+    backgroundColor:'#ffffff',
     alignItems:'center',
-    borderRadius:5,
-    margin:20,
-    height:60,
-    backgroundColor:'#152D35',
-    width:320,
-    shadowColor:'black',
-    elevation:10,
-    shadowOpacity:5,
-    borderWidth:0.5,
-    borderColor:'#D4ECDD',
-  },
-  Idcard:{
-    backgroundColor:'#152D35',
-    width:320,
-    height:170,
-    borderRadius:20,
-    margin:10,
     // justifyContent:'center',
-    borderColor:'#D4ECDD',
-    // alignItems:'center',
-    shadowColor:'black',
-    elevation:10,
-    shadowOpacity:5,
-    borderWidth:0.5,
-    padding:10
+    borderWidth:1,
+    borderColor:'#4b49ac',
+    borderRadius:10,
+    margin:50,
+    marginLeft:30,
+    marginRight:30,
   },
   login:{
     flex:1,
     backgroundColor:'#fffaf0',
     borderWidth:1,
     borderColor:'#4b49ac',
-    borderRadius:10,
-    margin:5,
+
+  },
+  login2:{
+    flex:1,
+    backgroundColor:'#fffaf0',
+    borderWidth:1,
+    borderColor:'#4b49ac',
+    flexDirection:'row',
+    flexWrap:'wrap',
   },
   card1:{
     backgroundColor:'#ffffff',
@@ -292,7 +408,9 @@ const styles = StyleSheet.create({
     margin:5,
     height:250,
     width:400,
+    margin:10
     // justifyContent:'space-around'
+
   },
   card2:{
     backgroundColor:'#ffffff',
@@ -302,6 +420,7 @@ const styles = StyleSheet.create({
     margin:5,
     height:250,
     width:400,
+    margin:10
   },
   card3:{
     backgroundColor:'#ffffff',
@@ -311,7 +430,8 @@ const styles = StyleSheet.create({
     margin:5,
     height:250,
     width:400,
-    marginRight:10
+    marginRight:10,
+    margin:10
   },
   card4:{
     backgroundColor:'#ffffff',
@@ -321,15 +441,19 @@ const styles = StyleSheet.create({
     margin:5,
     height:250,
     width:400,
-    marginRight:10
+    marginRight:10,
+    margin:10
   },
   loginbutton:{
     borderWidth:2,
-    borderColor:'#D4ECDD',
+    borderColor:'#000000',
     borderRadius:10,
     margin:10,
     padding:10,
+    justifyContent:'center', 
+    alignItems:'center',
   }
-})
+  }
+)
 
 export default App;
