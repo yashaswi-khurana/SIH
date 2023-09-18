@@ -238,33 +238,26 @@ const styles = StyleSheet.create({
     marginTop:40,
     backgroundColor:'#4b49ac',
     width:320,
-height:50,
-shadowColor:'black',
-elevation:10,
-shadowOpacity:5,
-borderWidth:0.5,
-marginLeft:40,
-
-
-    
-
+    height:50,
+    shadowColor:'black',
+    elevation:10,
+    shadowOpacity:5,
+    borderWidth:0.5,
+    marginLeft:40,
   },
   Main2:{
-  justifyContent:'center',
-  alignItems:'center',
-  borderRadius:5,
-margin: 20 ,
-height:60,
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius:5,
+    margin:20,
+    height:60,
     backgroundColor:'#152D35',
-width:320,
-shadowColor:'black',
-elevation:10,
-shadowOpacity:5,
-borderWidth:0.5,
-borderColor:'#D4ECDD',
-
-
-
+    width:320,
+    shadowColor:'black',
+    elevation:10,
+    shadowOpacity:5,
+    borderWidth:0.5,
+    borderColor:'#D4ECDD',
   },
   Idcard:{
     backgroundColor:'#152D35',
@@ -276,10 +269,10 @@ borderColor:'#D4ECDD',
     borderColor:'#D4ECDD',
     // alignItems:'center',
     shadowColor:'black',
-elevation:10,
-shadowOpacity:5,
-borderWidth:0.5,
-padding:10
+    elevation:10,
+    shadowOpacity:5,
+    borderWidth:0.5,
+    padding:10
   },
   login:{
     flex:1,
@@ -300,7 +293,6 @@ padding:10
     height:250,
     width:400,
     // justifyContent:'space-around'
-
   },
   card2:{
     backgroundColor:'#ffffff',
@@ -338,7 +330,6 @@ padding:10
     margin:10,
     padding:10,
   }
-  }
-)
+})
 
 export default App;
