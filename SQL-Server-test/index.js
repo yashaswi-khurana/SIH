@@ -4,7 +4,6 @@ import Database from './database.js';
 
 // Import App routes
 import login from './login.js';
-import openapi from './openapi.js';
 
 const port = process.env.PORT || 3000;
 
@@ -28,7 +27,6 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // Connect App routes
-app.use('/api-docs', openapi);
 app.use('/logins', login);
 app.use('*', (_, res) => {
   res.redirect('/api-docs');
