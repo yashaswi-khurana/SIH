@@ -15,15 +15,15 @@ app.get('/home',(req,res)=>{
     
    
 })
-app.get('/profile',(req,res)=>{
+app.get('/profile',(req,res)=>{ 
     
     res.render('profile.ejs')
     
    
 })
-app.get('/update',(req,res)=>{
+app.get('/createnewitem',(req,res)=>{
     
-    res.render('removeitem.ejs')
+    res.render('createnewitem.ejs')
     
    
 })
@@ -39,11 +39,14 @@ app.get('/login',(req,res)=>{
     
    
 })
-app.get('/signup',(reqp,res)=>{
+app.get('/signup',(req,res)=>{
     
     res.render('signup.ejs')
     
    
+})
+app.get('/removeitem',(req,res)=>{
+res.render('removeitem.ejs')
 })
 app.listen(3000);
 

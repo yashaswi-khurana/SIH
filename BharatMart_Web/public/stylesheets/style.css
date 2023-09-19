@@ -494,4 +494,14 @@ border-radius: 4px;
         width: 180px;
     }
     }
+    a:link, a:visited {
+        background-color: #ffffff;
+        color: rgb(9, 0, 0);
+        
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+      }
+      
+     
     
