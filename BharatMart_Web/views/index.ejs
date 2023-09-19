@@ -42,10 +42,10 @@
 
 		<div class="message">
 			<div class="circle"></div>
-			<img src=
+			<button type="button"><img src=
 			"../images/pic3.png"
 				class="icn"
-				alt="">
+				alt=""></button>
 			<div class="dp">
 			<img src=
 			"../images/pic4.png"
@@ -237,6 +237,13 @@
 	menuicn.addEventListener("click", () => {
 		nav.classList.toggle("navclose");
 	})
+	
 	</script>
+	<script>
+		var pressedButton = document.getElementsByTagName("button")[0];
+		pressedButton.addEventListener("click", function (message) {
+		   alert("You have recieved an order")
+		})
+	 </script>
 </body>
 </html>

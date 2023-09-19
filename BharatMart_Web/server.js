@@ -21,7 +21,7 @@ const app=express();
 app.set('view engine','ejs')
 app.use(express.static(path.join(__dirname,'public')))
 app.get('/',(req,res)=>{
-   
+   req.send
     res.render('index.ejs')
     
    
@@ -47,7 +47,7 @@ app.get('/createnewitem',(req,res)=>{
 app.get('/salesrecord',(req,res)=>{
     
     res.render('salesrecord.ejs')
-    
+        
    
 })
 app.get('/login',(req,res)=>{
