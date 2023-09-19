@@ -1,13 +1,16 @@
 const express=require('express');
 const Database=require('./database/database.js')
 const config = require('./database/config.js')
+
 const path=require('path')
+
 
 const database = new Database(config);
 
 database
     .executeQuery(
-      `CREATE TABLE Login (id int NOT NULL IDENTITY, passwd varchar(30));`
+      `CREATE TABLE Vendors (Vendor_ID int NOT NULL PRIMARY KEY, Vendor_Name varchar(30));`
+      //Example query
     )
     .then(() => {
       console.log('Table created');
@@ -65,3 +68,5 @@ app.get('/signup',(req,res)=>{
 
 app.listen(3000);
 
+
+const loginRoute = require('./database/routes/login.js')
