@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === 'development') {
 // Connect App routes
 app.use('/logins', login);
 app.use('*', (_, res) => {
-  res.redirect('/api-docs');
+  res.send("Hi the server works");
 });
 
 // Start the server
