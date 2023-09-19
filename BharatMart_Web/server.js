@@ -1,6 +1,6 @@
 const express=require('express');
-const Database=require('./database.js')
-const { config } = require('./config.js')
+const Database=require('./database/database.js')
+const config = require('./database/config.js')
 const path=require('path')
 
 const database = new Database(config);
