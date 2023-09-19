@@ -62,8 +62,6 @@ app.get('/signup',(req,res)=>{
     
    
 })
-app.get('/removeitem',(req,res)=>{
-res.render('removeitem.ejs')
-})
+
 app.listen(3000);
 

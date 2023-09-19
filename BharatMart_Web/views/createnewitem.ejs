@@ -1,143 +1,190 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible"
-		content="IE=edge">
-	<meta name="viewport"
-		content="width=device-width,
-				initial-scale=1.0">
-	<title>BharatMart</title>
-	<link rel="stylesheet"
-		href="stylesheets/style.css">
-	<link rel="stylesheet"
-		href="responsive.css">
+	<title>
+		User Data Management
+	</title>
+	<style>
+		body {
+			margin: 4rem;
+		}
+
+		#formContainer {
+			margin-bottom: 20px;
+		}
+
+		label {
+			display: block;
+			margin-top: 10px;
+		}
+
+		input,
+		textarea {
+			width: 300px;
+			padding: 8px;
+			margin-top: 5px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+
+		button {
+			margin: 10px;
+			padding: 8px 16px;
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: #45a049;
+		}
+
+		table {
+			border-collapse: collapse;
+			margin-bottom: 20px;
+			width: 100%;
+		}
+
+		th,
+		td {
+			border: 1px solid #ddd;
+			padding: 8px;
+			text-align: left;
+		}
+
+		th {
+			background-color: #4CAF50;
+			color: #fff;
+		}
+	</style>
 </head>
 
 <body>
+	<h1 style="color: green;">
+		Geekforgeeks!!
+	</h1>
+	<h2>User Data Management</h2>
 
-	<!-- for header part -->
-	<header>
+	<div id="formContainer">
+		<label for="nameInput">
+			Name:
+		</label>
+		<input type="text"
+			id="nameInput"
+			placeholder="Enter your name">
+		<label for="emailInput">
+			Email I'd:
+		</label>
+		<input type="email"
+			id="emailInput"
+			placeholder="Enter your email">
+		<label for="numberInput">
+			Mobile Details:
+		</label>
+		<input type="text"
+			id="numberInput"
+			placeholder="Enter your mobile details">
+		<label for="addressInput">
+			Address:
+		</label>
+		<textarea id="addressInput"
+				placeholder="Enter your address">
+		</textarea>
+		<button onclick="addData()">
+			Add
+		</button>
+	</div>
+	<table id="outputTable">
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Mobile Details</th>
+			<th>Address</th>
+			<th>Action</th>
+		</tr>
+	</table>
+	<script>
+		function addData() {
+			// Get input values
+			let name =
+				document.getElementById("nameInput").value;
+			let email =
+				document.getElementById("emailInput").value;
+			let mobile =
+				document.getElementById("numberInput").value;
+			let address =
+				document.getElementById("addressInput").value;
+			
+			// Get the table and insert a new row at the end
+			let table = document.getElementById("outputTable");
+			let newRow = table.insertRow(table.rows.length);
+			
+			// Insert data into cells of the new row
+			newRow.insertCell(0).innerHTML = name;
+			newRow.insertCell(1).innerHTML = email;
+			newRow.insertCell(2).innerHTML = mobile;
+			newRow.insertCell(3).innerHTML = address;
+			newRow.insertCell(4).innerHTML =
+				'<button onclick="editData(this)">Edit</button>'+
+				'<button onclick="deleteData(this)">Delete</button>';
+			
+			// Clear input fields
+			clearInputs();
+		}
 
-		<div class="logosec">
-			<div class="logo"><img src="../images/logo (3).jpg"></div>
-			<img src="../images/pic1.png"
-				class="icn menuicn"
-				id="menuicn"
-				alt="menu-icon">
-		</div>
+		function editData(button) {
+			
+			// Get the parent row of the clicked button
+			let row = button.parentNode.parentNode;
+			
+			// Get the cells within the row
+			let nameCell = row.cells[0];
+			let emailCell = row.cells[1];
+			let mobileCell = row.cells[2];
+			let addressCell = row.cells[3];
+			
+			// Prompt the user to enter updated values
+			let nameInput =
+				prompt("Enter the updated name:",
+					nameCell.innerHTML);
+			let emailInput =
+				prompt("Enter the updated email:",
+					emailCell.innerHTML);
+			let numberInput =
+				prompt("Enter the updated mobile details:",
+					mobileCell.innerHTML
+				);
+			let addressInput =
+				prompt("Enter the updated address:",
+					addressCell.innerHTML
+				);
+			
+			// Update the cell contents with the new values
+			nameCell.innerHTML = nameInput;
+			emailCell.innerHTML = emailInput;
+			mobileCell.innerHTML = numberInput;
+			addressCell.innerHTML = addressInput;
+		}
+		function deleteData(button) {
+			
+			// Get the parent row of the clicked button
+			let row = button.parentNode.parentNode;
 
-		<div class="searchbar">
-			<input type="text"
-				placeholder="Search">
-			<div class="searchbtn">
-			<img src=
-			"../images/pic2.png"
-					class="icn srchicn"
-					alt="search-icon">
-			</div>
-		</div>
+			// Remove the row from the table
+			row.parentNode.removeChild(row);
+		}
+		function clearInputs() {
+			
+			// Clear input fields
+			document.getElementById("nameInput").value = "";
+			document.getElementById("emailInput").value = "";
+			document.getElementById("numberInput").value = "";
+			document.getElementById("addressInput").value = "";
+		}
+	</script>
+</body>
 
-		<div class="message">
-			<div class="circle"></div>
-			<img src=
-			"../images/pic3.png"
-				class="icn"
-				alt="">
-			<div class="dp">
-			<img src=
-			"../images/pic4.png"
-					class="dpicn"
-					alt="dp">
-			</div>
-		</div>
-
-	</header>
-
-	<div class="main-container">
-		<div class="navcontainer">
-			<nav class="nav">
-				<div class="nav-upper-options">
-					<a href="/home"><div class="nav-option option4">
-						<img src=
-						"../images/pic5.png"
-							class="nav-img"
-							alt="dashboard">
-						<h3> Dashboard</h3>
-					</div></a>
-
-					<a href="/removeitem"><div class="option2 nav-option">
-						<img src=
-						"../images/pic6.png"
-							class="nav-img"
-							alt="articles">
-						<h3> Add/Remove The Item</h3>
-					</div></a>
-
-					<a href="/createnewitem"><div class="nav-option option1">
-						<img src=
-						"../images/pic7.png"
-							class="nav-img"
-							alt="report">
-						<h3> Create New Item</h3>
-					</div></a>
-
-					<a href="/salesrecord"><div class="nav-option option3">
-						<img src=
-						"../images/pic8.png"
-							class="nav-img"
-							alt="institution">
-						<h3> Sales Record</h3>
-					</div></a>
-
-					<a href="/profile"><div class="nav-option option5">
-						<img src=
-						"../images/pic9.png"
-							class="nav-img"
-							alt="blog">
-							<h3> Profile</h3>
-					</div></a>
-
-					<div class="nav-option option6">
-						<img src=
-						"../images/pic10.png"
-							class="nav-img"
-							alt="settings">
-						<h3> Settings</h3>
-					</div>
-
-					<div class="nav-option logout">
-						<img src=
-						"../images/pic11.png"							
-						class="nav-img"
-							alt="logout">
-						<h3>Logout</h3>
-					</div>
-
-				</div>
-			</nav>
-		</div>
-		<div class="main">
-
-			<div class="searchbar2">
-				<input type="text"
-					name=""
-					id=""
-					placeholder="Search">
-				<div class="searchbtn">
-				<img src=
-				"../images/pic12.png"
-						class="icn srchicn"
-						alt="search-button">
-				</div>
-			</div>
-
-<script>
-    let menuicn = document.querySelector(".menuicn");
-let nav = document.querySelector(".navcontainer");
-
-menuicn.addEventListener("click", () => {
-	nav.classList.toggle("navclose");
-})
-</script>
+</html>
