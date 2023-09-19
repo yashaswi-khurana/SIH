@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
 	<title>
-		Item Data Management
+	BharatMart
 	</title>
 	<style>
 		body {
@@ -64,33 +63,36 @@
 </head>
 
 <body>
-	
-	<h2>ADD/EDIT ITEMS</h2>
+
+	<div class="logosec">
+		<div class="logo"><img src="../images/logo (3).jpg"></div>	
+	</h1>
+	<h2>Create/Edit Item</h2>
 
 	<div id="formContainer">
 		<label for="nameInput">
-			ITEM NAME:
+			Name:
 		</label>
 		<input type="text"
 			id="nameInput"
-			placeholder="Enter item name">
+			placeholder="Enter your name">
 		<label for="emailInput">
-			PRICE:
+			Email I'd:
 		</label>
 		<input type="email"
 			id="emailInput"
-			placeholder="Enter price">
+			placeholder="Enter your email">
 		<label for="numberInput">
-			QUANTITY:
+			Mobile Details:
 		</label>
 		<input type="text"
 			id="numberInput"
-			placeholder="Enter quantity">
+			placeholder="Enter your mobile details">
 		<label for="addressInput">
-			DESCRIPTION:
+			Address:
 		</label>
 		<textarea id="addressInput"
-				placeholder="Write description">
+				placeholder="Enter your address">
 		</textarea>
 		<button onclick="addData()">
 			Add
@@ -98,10 +100,10 @@
 	</div>
 	<table id="outputTable">
 		<tr>
-			<th>ITEM Name</th>
-			<th>PRICEl</th>
-			<th>QUANTITY</th>
-			<th>DESCRIPTION</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Mobile Details</th>
+			<th>Address</th>
 			<th>Action</th>
 		</tr>
 	</table>
@@ -147,17 +149,17 @@
 			
 			// Prompt the user to enter updated values
 			let nameInput =
-				prompt("Enter the updated item name:",
+				prompt("Enter the updated name:",
 					nameCell.innerHTML);
 			let emailInput =
-				prompt("Enter the updated price:",
+				prompt("Enter the updated email:",
 					emailCell.innerHTML);
 			let numberInput =
-				prompt("Enter the updated quantity:",
+				prompt("Enter the updated mobile details:",
 					mobileCell.innerHTML
 				);
 			let addressInput =
-				prompt("Enter the updated description:",
+				prompt("Enter the updated address:",
 					addressCell.innerHTML
 				);
 			
