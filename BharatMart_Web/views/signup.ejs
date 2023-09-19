@@ -188,6 +188,23 @@
     </form>
 <a href="login" id="SignUp">Login! Instead</a>
   </div>
+  <script>
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+  
+      // Perform login validation here (e.g., send request to server, compare credentials)
+  
+      // Example validation
+      if (mailid === "manavrai454@gmail.com" && username === "admin" && password === "password") {
+        alert("Signup successful!");
+        // Redirect to another page or perform other actions
+      } else {
+        alert("Invalid username or password. Please try again.");
+      }
+    });
+  </script>
 
 </body>
 </html>
