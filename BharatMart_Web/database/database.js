@@ -12,7 +12,7 @@ class Database {
 
   async connect() {
     try {
-      console.log(`Database connecting...${this.connected}`);
+      console.log(`Database connected...${this.connected}`);
       if (this.connected === false) {
         this.poolconnection = await sql.connect(this.config);
         this.connected = true;
@@ -21,7 +21,7 @@ class Database {
         console.log('Database already connected');
       }
     } catch (error) {
-      console.error(`Error connecting to database: ${JSON.stringify(error)}`);
+      console.error(`Error connecting to database: ${/*JSON.stringify*/(error)}`);
     }
   }
 

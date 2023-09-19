@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html>
 
 <head>
 	<title>
-		User Data Management
+		Item Data Management
 	</title>
 	<style>
 		body {
@@ -63,35 +64,33 @@
 </head>
 
 <body>
-	<h1 style="color: green;">
-		Geekforgeeks!!
-	</h1>
-	<h2>User Data Management</h2>
+	
+	<h2>ADD/EDIT ITEMS</h2>
 
 	<div id="formContainer">
 		<label for="nameInput">
-			Name:
+			ITEM NAME:
 		</label>
 		<input type="text"
 			id="nameInput"
-			placeholder="Enter your name">
+			placeholder="Enter item name">
 		<label for="emailInput">
-			Email I'd:
+			PRICE:
 		</label>
 		<input type="email"
 			id="emailInput"
-			placeholder="Enter your email">
+			placeholder="Enter price">
 		<label for="numberInput">
-			Mobile Details:
+			QUANTITY:
 		</label>
 		<input type="text"
 			id="numberInput"
-			placeholder="Enter your mobile details">
+			placeholder="Enter quantity">
 		<label for="addressInput">
-			Address:
+			DESCRIPTION:
 		</label>
 		<textarea id="addressInput"
-				placeholder="Enter your address">
+				placeholder="Write description">
 		</textarea>
 		<button onclick="addData()">
 			Add
@@ -99,10 +98,10 @@
 	</div>
 	<table id="outputTable">
 		<tr>
-			<th>Name</th>
-			<th>Email</th>
-			<th>Mobile Details</th>
-			<th>Address</th>
+			<th>ITEM Name</th>
+			<th>PRICEl</th>
+			<th>QUANTITY</th>
+			<th>DESCRIPTION</th>
 			<th>Action</th>
 		</tr>
 	</table>
@@ -148,17 +147,17 @@
 			
 			// Prompt the user to enter updated values
 			let nameInput =
-				prompt("Enter the updated name:",
+				prompt("Enter the updated item name:",
 					nameCell.innerHTML);
 			let emailInput =
-				prompt("Enter the updated email:",
+				prompt("Enter the updated price:",
 					emailCell.innerHTML);
 			let numberInput =
-				prompt("Enter the updated mobile details:",
+				prompt("Enter the updated quantity:",
 					mobileCell.innerHTML
 				);
 			let addressInput =
-				prompt("Enter the updated address:",
+				prompt("Enter the updated description:",
 					addressCell.innerHTML
 				);
 			
