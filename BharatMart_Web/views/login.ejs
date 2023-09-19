@@ -199,9 +199,11 @@ svg {
       // Example validation
       if (username === "admin" && password === "password") {
         alert("Login successful!");
+        window.location.href = "/home";
         // Redirect to another page or perform other actions
       } else {
         alert("Invalid username or password. Please try again.");
+        
       }
     });
   </script>
