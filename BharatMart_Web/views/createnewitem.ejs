@@ -71,28 +71,28 @@
 
 	<div id="formContainer">
 		<label for="nameInput">
-			Name:
+			ITEM NAME:
 		</label>
 		<input type="text"
 			id="nameInput"
-			placeholder="Enter your name">
+			placeholder="Enter ITAM NAME">
 		<label for="emailInput">
-			Email I'd:
+			PRICE:
 		</label>
 		<input type="email"
 			id="emailInput"
-			placeholder="Enter your email">
+			placeholder="Enter PRICE">
 		<label for="numberInput">
-			Mobile Details:
+			QUANTITY:
 		</label>
 		<input type="text"
 			id="numberInput"
-			placeholder="Enter your mobile details">
+			placeholder="Enter QUANTITY">
 		<label for="addressInput">
-			Address:
+			DESCRIPTION:
 		</label>
 		<textarea id="addressInput"
-				placeholder="Enter your address">
+				placeholder="Enter DESCRIPTION">
 		</textarea>
 		<button onclick="addData()">
 			Add
@@ -100,10 +100,10 @@
 	</div>
 	<table id="outputTable">
 		<tr>
-			<th>Name</th>
-			<th>Email</th>
-			<th>Mobile Details</th>
-			<th>Address</th>
+			<th>ITEM NAME</th>
+			<th>PRICE</th>
+			<th>QUANTITY</th>
+			<th>DESCRIPTION</th>
 			<th>Action</th>
 		</tr>
 	</table>
@@ -149,17 +149,17 @@
 			
 			// Prompt the user to enter updated values
 			let nameInput =
-				prompt("Enter the updated name:",
+				prompt("Enter the updated ITEM NAME:",
 					nameCell.innerHTML);
 			let emailInput =
-				prompt("Enter the updated email:",
+				prompt("Enter the updated PRICE",
 					emailCell.innerHTML);
 			let numberInput =
-				prompt("Enter the updated mobile details:",
+				prompt("Enter the updated QUANTITY",
 					mobileCell.innerHTML
 				);
 			let addressInput =
-				prompt("Enter the updated address:",
+				prompt("Enter the updated DESCRIPTION",
 					addressCell.innerHTML
 				);
 			
