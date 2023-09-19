@@ -1,6 +1,23 @@
 const express=require('express');
-const app=express();
+const Database=require('./database/database.js')
+const config = require('./database/config.js')
 const path=require('path')
+
+const database = new Database(config);
+
+database
+    .executeQuery(
+      `CREATE TABLE Login (id int NOT NULL IDENTITY, passwd varchar(30));`
+    )
+    .then(() => {
+      console.log('Table created');
+    })
+    .catch((err) => {
+    // Table may already exist
+        console.error(`Error creating table: ${err}`);
+    });
+
+const app=express();
 app.set('view engine','ejs')
 app.use(express.static(path.join(__dirname,'public')))
 app.get('/',(req,res)=>{
