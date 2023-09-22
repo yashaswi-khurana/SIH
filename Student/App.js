@@ -183,7 +183,7 @@ function Item(props){
     <ScrollView>
     <View style={styles.Itemcard}>
       <Text style={{fontSize:50}} >Ashirwad Atta</Text>
-      <Image source={require('C:\\Users\\Yashaswi\\OneDrive\\Desktop\\Student\\assets\\aashirvaad-CHAKKI-FRESH.jpg')} style={{height:400,width:300}}></Image>
+      <Image source={require('./assets/aashirvaad-CHAKKI-FRESH.jpg')} style={{height:400,width:300}}></Image>
       <Text style={{fontSize:30}}>Price: 200</Text>
       <Text style={{fontSize:30}}>Quantity: 5kg</Text>
       <Text style={{fontSize:20}}>Description: Whole Wheat Flour</Text>
